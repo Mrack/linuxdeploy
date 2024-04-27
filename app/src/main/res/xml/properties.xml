@@ -153,6 +153,10 @@
 
         <CheckBoxPreference
             android:defaultValue="@string/is_mounts"
+            android:key="is_android_mounts"
+            android:title="@string/title_is_androiod_mounts_preference" />
+        <CheckBoxPreference
+            android:defaultValue="@string/is_mounts"
             android:key="is_mounts"
             android:summary="@string/summary_is_mounts_preference"
             android:title="@string/title_is_mounts_preference" />

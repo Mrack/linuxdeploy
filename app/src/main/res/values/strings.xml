@@ -239,6 +239,7 @@
 
     <!-- MOUNTS -->
     <string name="mounts_preferences">MOUNTS</string>
+    <string name="title_is_androiod_mounts_preference">挂载 Android 系统</string>
     <string name="title_is_mounts_preference">Enable</string>
     <string name="summary_is_mounts_preference">Allow to mount the Android resources</string>
     <string name="title_mounts_editor_preference">Mount points</string>

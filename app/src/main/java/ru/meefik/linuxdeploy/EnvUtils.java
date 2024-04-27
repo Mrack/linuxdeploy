@@ -328,11 +328,14 @@ public class EnvUtils {
      * @param c context
      * @return true if success
      */
-    private static boolean makeMainScript(Context c) {
+    static boolean makeMainScript(Context c) {
         String scriptFile = PrefStore.getBinDir(c) + "/linuxdeploy";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(scriptFile))) {
             bw.write("#!" + PrefStore.getShell(c) + "\n");
+            if (PrefStore.isAndroidMount(c)) {
+                bw.write("ANDROID=1\n");
+            }
             bw.write("PATH=" + PrefStore.getPath(c) + ":$PATH\n");
             bw.write("ENV_DIR=\"" + PrefStore.getEnvDir(c) + "\"\n");
             bw.write(". \"${ENV_DIR}/cli.sh\"\n");

@@ -118,6 +118,10 @@ public class PrefStore {
         return SETTINGS.restore(c, getSettingsConfFile(c));
     }
 
+    public static boolean isAndroidMount(Context c) {
+        return PROPERTIES.get(c, "is_android_mounts").equals("true");
+    }
+
     /**
      * Dump profile to configuration file
      *
@@ -125,7 +129,9 @@ public class PrefStore {
      * @return true if success
      */
     public static boolean dumpProperties(Context c) {
-        return PROPERTIES.dump(c, getPropertiesConfFile(c));
+        boolean dump = PROPERTIES.dump(c, getPropertiesConfFile(c));
+        EnvUtils.makeMainScript(c);
+        return dump;
     }
 
     /**
